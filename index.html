@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background-color: #f0f0f0;
+    }
+
+    .calculator-container {
+      text-align: center;
+    }
+
+    textarea {
+      width: 100%;
+      height: 100px;
+      margin-bottom: 10px;
+    }
+
+    button {
+      padding: 10px;
+      background-color: #4caf50;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #45a049;
+    }
+
+    #totalResult {
+      margin-top: 10px;
+      font-weight: bold;
+    }
+  </style>
+  <title>Vertical Number Calculator</title>
+</head>
+<body>
+
+  <div class="calculator-container">
+    <textarea id="numbersInput" placeholder="Enter numbers, one per line"></textarea>
+    <button onclick="calculateTotal()">Calculate Total</button>
+    <div id="totalResult">Total = </div>
+  </div>
+
+  <script>
+    function calculateTotal() {
+      const numbersInput = document.getElementById('numbersInput').value;
+      const numbersArray = numbersInput.split('\n').map(Number);
+      const total = numbersArray.reduce((acc, num) => acc + num, 0);
+      document.getElementById('totalResult').innerText = `Total = ${total}`;
+    }
+  </script>
+</body>
+</html>
